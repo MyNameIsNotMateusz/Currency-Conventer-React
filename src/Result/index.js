@@ -1,23 +1,16 @@
-import { useState, useEffect } from "react";
 import "./style.css";
 
-
-function Result({ amount, currencyFrom, currencyTo, exchangeRate }) {
-  const result = calculateExchangeRate(amount, currencyFrom, currencyTo, exchangeRate);
-
-
+function Result({ result }) {
   return (
     <div>
-      {result && (
+      {result !== null && (
         <div>
           <h3>Result:</h3>
-          <p>
-            {amount} {currencyFrom} = {result} {currencyTo}
-          </p>
+          <p>{result}</p>
         </div>
       )}
     </div>
   );
-};
+}
 
 export default Result;

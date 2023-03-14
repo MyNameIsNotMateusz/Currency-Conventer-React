@@ -1,14 +1,13 @@
 import "./style.css";
-import { useState } from "react";
+import React, { useState } from "react";
 
-
-const Form = () => {
+const Form = ({ setResult }) => {
   const [amount, setAmount] = useState(0);
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("EUR");
-  const [result, setResult] = useState(0);
 
   const convertCurrency = (event) => {
+    event.preventDefault();
     const rates = {
       USD: 1,
       EUR: 0.83,
@@ -20,14 +19,9 @@ const Form = () => {
     setResult(amount * exchangeRate);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    convertCurrency();
-  };
-
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={convertCurrency}>
         <label htmlFor="amount">Amount</label>
         <input
           id="amount"
