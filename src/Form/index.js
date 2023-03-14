@@ -22,7 +22,7 @@ const Form = ({ setResult }) => {
   return (
     <>
       <form onSubmit={convertCurrency}>
-        <label htmlFor="amount">Amount</label>
+        <label>Amount</label>
         <input
           id="amount"
           type="number"
@@ -30,7 +30,7 @@ const Form = ({ setResult }) => {
           value={amount}
           onChange={(event) => setAmount(event.target.value)}
         />
-        <label htmlFor="fromCurrency">From:</label>
+        <label>From:</label>
         <select
           id="fromCurrency"
           value={fromCurrency}
@@ -41,7 +41,7 @@ const Form = ({ setResult }) => {
           <option value="GBP">GBP - British Pound</option>
           <option value="PLN">PLN - Polish Zloty</option>
         </select>
-        <label htmlFor="toCurrency">To:</label>
+        <label>To:</label>
         <select
           id="toCurrency"
           value={toCurrency}
