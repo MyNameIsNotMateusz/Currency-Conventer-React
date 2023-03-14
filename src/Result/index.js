@@ -2,25 +2,22 @@ import { useState, useEffect } from "react";
 import "./style.css";
 
 
-const Result = ({ amount, fromCurrency, toCurrency }) => {
-  const [result, setResult] = useState("");
+function Result(props) {
+  const { amount, currencyFrom, currencyTo, exchangeRate } = props;
+  const result = calculateExchangeRate(amount, currencyFrom, currencyTo, exchangeRate);
 
-  useEffect(() => {
-    const API_KEY = "YOUR_API_KEY_HERE";
-    const url = `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${fromCurrency}/${toCurrency}/${amount}`;
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => setResult(data.conversion_result))
-      .catch((error) => console.log(error));
-  }, [amount, fromCurrency, toCurrency]);
 
   return (
-    <>
-      <div>
-        <h2>Result: {result}</h2>
-      </div>
-    </>
+    <div>
+      {result && (
+        <div>
+          <h3>Result:</h3>
+          <p>
+            {amount} {currencyFrom} = {result} {currencyTo}
+          </p>
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -1,34 +1,44 @@
 import "./style.css";
 import { useState } from "react";
-import Result from "../Result";
+
 
 const Form = () => {
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(0);
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("EUR");
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState(0);
+
+  const convertCurrency = (event) => {
+    const rates = {
+      USD: 1,
+      EUR: 0.83,
+      GBP: 0.72,
+      PLN: 3.88
+    };
+
+    const exchangeRate = rates[toCurrency] / rates[fromCurrency];
+    setResult(amount * exchangeRate);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const API_KEY = "YOUR_API_KEY_HERE";
-    const url = `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${fromCurrency}/${toCurrency}/${amount}`;
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => setResult(data.conversion_result))
-      .catch((error) => console.log(error));
+    convertCurrency();
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label>Amount</label>
+        <label htmlFor="amount">Amount</label>
         <input
+          id="amount"
+          type="number"
+          step="0.01"
           value={amount}
           onChange={(event) => setAmount(event.target.value)}
         />
-        <label>From</label>
+        <label htmlFor="fromCurrency">From:</label>
         <select
+          id="fromCurrency"
           value={fromCurrency}
           onChange={(event) => setFromCurrency(event.target.value)}
         >
@@ -37,8 +47,9 @@ const Form = () => {
           <option value="GBP">GBP - British Pound</option>
           <option value="PLN">PLN - Polish Zloty</option>
         </select>
-        <label>To</label>
+        <label htmlFor="toCurrency">To:</label>
         <select
+          id="toCurrency"
           value={toCurrency}
           onChange={(event) => setToCurrency(event.target.value)}
         >
@@ -47,9 +58,11 @@ const Form = () => {
           <option value="GBP">GBP - British Pound</option>
           <option value="PLN">PLN - Polish Zloty</option>
         </select>
-        <button>See the result</button>
+        <button type="submit">See the result</button>
       </form>
-      <Result result={result} />
+      <div>
+        <p>Result: {result.toFixed(2)}</p>
+      </div>
     </>
   );
 };
