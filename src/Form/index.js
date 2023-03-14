@@ -60,9 +60,6 @@ const Form = () => {
         </select>
         <button type="submit">See the result</button>
       </form>
-      <div>
-        <p>Result: {result.toFixed(2)}</p>
-      </div>
     </>
   );
 };

@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import "./style.css";
 
 
-function Result(props) {
-  const { amount, currencyFrom, currencyTo, exchangeRate } = props;
+function Result({ amount, currencyFrom, currencyTo, exchangeRate }) {
   const result = calculateExchangeRate(amount, currencyFrom, currencyTo, exchangeRate);
 
 
