@@ -5,12 +5,13 @@ import Result from "./Result";
 
 function App() {
   const [result, setResult] = useState(null);
+  const [showResult, setShowResult] = useState(false);
 
   return (
     <>
       <Header />
-      <Form setResult={setResult} />
-      <Result result={result} />
+      <Form setResult={setResult} setShowResult={setShowResult} />
+      {showResult && <Result result={result} />}
     </>
   );
 }

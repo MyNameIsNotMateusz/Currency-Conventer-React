@@ -1,7 +1,8 @@
+
 import "./style.css";
 import { useState } from "react";
 
-const Form = ({ setResult }) => {
+const Form = ({ setResult, setShowResult }) => {
   const [amount, setAmount] = useState(0);
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("EUR");
@@ -17,16 +18,17 @@ const Form = ({ setResult }) => {
 
     const exchangeRate = rates[toCurrency] / rates[fromCurrency];
     setResult(amount * exchangeRate);
+    setShowResult(true);
   };
 
   return (
     <>
       <form
-      className="form"
-      onSubmit={convertCurrency}>
+        className="form"
+        onSubmit={convertCurrency}>
         <label className="form__item--label">Amount</label>
         <input
-        className="form__item--input"
+          className="form__item--input"
           id="amount"
           type="number"
           step="0.01"
