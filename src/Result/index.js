@@ -2,7 +2,7 @@ import "./style.css";
 
 function Result({ result }) {
   return (
-    <div>
+    <div className="result">
       {result !== null && (
         <div>
           <h3>Result:</h3>
