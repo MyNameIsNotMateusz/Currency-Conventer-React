@@ -8,3 +8,8 @@
 .header__item--secondHeading {
     color: rgba(0, 0, 0, 0.606);
 }
+
+.header__item--time {
+    color: rgba(0, 0, 0, 0.606);
+    font-size: small;  
+}
