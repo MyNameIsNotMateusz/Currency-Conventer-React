@@ -1,14 +1,31 @@
-import "./style.css";
+import styled from "styled-components";
+
+const HeaderWrapper = styled.div`
+    text-align: center;
+    margin: auto;
+    margin-top: 100px;
+`;
+
+const SecondHeading = styled.p`
+ color: rgba(0, 0, 0, 0.606);
+`;
+
+const HeaderTimer = styled.p`
+    color: rgba(0, 0, 0, 0.606);
+    font-size: small;
+    font-weight: 800;
+    font-stretch: expanded;
+`;
 
 const Header = (props) => {
     return (
-        <div className="header">
+        <HeaderWrapper>
             <h1>Currency Converter</h1>
-            <p className="header__item--secondHeading">
+            <SecondHeading>
                 Check foreign currency exchange rates
-            </p>
-            <p className="header__item--time">Current Time: {props.date}</p>
-        </div>
+            </SecondHeading>
+            <HeaderTimer>Current Time: {props.date}</HeaderTimer>
+        </HeaderWrapper>
     );
 };
 
