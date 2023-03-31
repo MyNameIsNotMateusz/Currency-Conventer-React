@@ -1,13 +1,26 @@
-import "./style.css";
+import styled from "styled-components";
 
-function Result({ result }) {
+const ResultWrapper = styled.div`
+    color: #000000ba;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 35px;
+    background-color: rgba(250, 0, 250, 0.04);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: large;
+    display: flex;
+    justify-content: space-between;
+`;
+
+const Result = ({ result }) => {
   return (
-    <div className="result">
+    <ResultWrapper>
       <div>
         <h3>Result:</h3>
         <p>{result}</p>
       </div>
-    </div>
+    </ResultWrapper>
   );
 }
 
