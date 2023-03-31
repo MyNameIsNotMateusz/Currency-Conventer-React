@@ -11,5 +11,7 @@
 
 .header__item--time {
     color: rgba(0, 0, 0, 0.606);
-    font-size: small;  
+    font-size: small;
+    font-weight: 800;
+    font-stretch: expanded;
 }
