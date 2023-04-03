@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
 html {
   box-sizing: border-box;
 }
@@ -10,3 +13,4 @@ body {
   background-color: #0009ff03;
   font-family: 'Open Sans', sans-serif;
 }
+`
