@@ -4,6 +4,8 @@ import { FormWrapper, LabelWrapper, Input, Button } from "./styled";
 
 const Form = ({ setResult, setShowResult }) => {
 
+  const [error, setError] = useState(false);
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
   
@@ -16,8 +18,11 @@ const Form = ({ setResult, setShowResult }) => {
       const result = response.data.result;
       setResult(result);
       setShowResult(true);
+      setError(false);
     } catch (error) {
       console.error(error);
+      setError(true);
+      setShowResult(false);
     }
   };
 
