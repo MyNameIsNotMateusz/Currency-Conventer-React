@@ -4,8 +4,6 @@ import { FormWrapper, LabelWrapper, Input, Button } from "./styled";
 
 const Form = ({ setResult, setShowResult }) => {
 
-  const [conversionData, setConversionData] = useState(null);
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
   
