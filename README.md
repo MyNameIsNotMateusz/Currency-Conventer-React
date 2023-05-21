@@ -11,6 +11,16 @@
 
 - 📫 How to reach me **mati1otorowski@gmail.com**
 
+- 🤝 How to use my app?
+
+1. The upper toolbar contains text boxes that are used to enter the values to be converted. Enter the amount there. This can be the source currency amount.
+2. In the second text box, select the source currency you want to convert from. You can enter its code or select it from the drop-down list.
+3. In the third text box, select the target currency you want to convert the value to. As before, you can enter a currency code or select it from the drop-down list.
+4. After entering values and selecting currencies, click on the "See the result" button next to the text boxes.
+5. The app will show the converted value in the bottom text field by API.
+
+![Tutorial](https://github.com/MyNameIsNotMateusz/Currency-Conventer-React/blob/main/public/Currency-Conventer-React.gif)
+
 - ⚡ Fun fact **I think I'm very hardworking**
 
 <h3 align="left">Connect with me:</h3>
